@@ -1,0 +1,11 @@
+{{ define "todos/_todoShort" }}
+<!--Create the link for the article based on its ID-->
+<div>
+    <a href="/todos/{{.ID}}">
+        <!--Display the title of the todo -->
+        <h2>{{.Title}}</h2>
+    </a>
+    <!--Display the content of the article-->
+    <p>{{.Description}}</p>
+</div>
+{{ end }}

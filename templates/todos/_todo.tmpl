@@ -1,0 +1,13 @@
+{{ define "todos/_todo" }}
+    <!--Create the link for the article based on its ID-->
+    <div>
+        <h2>{{ .title }}</h2>
+        <dl class="row">
+            <dt class="col-sm-3 col-md-3 col-lg-2">Description</dt>
+            <dd class="col-sm-9 col-md-9 col-lg-10">{{ .description }}</dd>
+
+            <dt class="col-sm-3 col-md-3 col-lg-2">Due Date</dt>
+            <dd class="col-sm-9 col-md-9 col-lg-10">{{ .dueDate | formatAsDate }}</dd>
+        </dl>
+    </div>
+{{ end }}

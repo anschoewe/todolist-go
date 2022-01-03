@@ -1,0 +1,13 @@
+{{ define "todos/list" }}
+    {{ template "base/header" . }}
+    <h1>{{ .title }} <span class="badge bg-secondary">{{ len .todos }}</span></h1>
+    <!--Loop over the payload variable, which is the list of articles-->
+    <div>
+        <ul class="list-group">
+            {{range .todos }}
+                <li class="list-group-item">{{ template "todos/_todoShort" . }}</li>
+            {{end}}
+        </ul>
+    </div>
+    {{ template "base/footer" . }}
+{{ end }}
