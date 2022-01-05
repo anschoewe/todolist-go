@@ -19,7 +19,7 @@ open cover.html
 # Run
 Start the web application on local port 8080
 ```bash
-
+go run main.go
 ```
 
 # Future enhancements

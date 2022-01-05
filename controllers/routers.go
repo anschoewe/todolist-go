@@ -8,20 +8,21 @@ import (
 )
 
 func InitRouter(templatePath string) *gin.Engine {
-	// Creates a gin router with default middleware:
+	// Creates a gin engine with default middleware:
 	// logger and recovery (crash-free) middleware
-	router := gin.Default()
-	router.SetFuncMap(template.FuncMap{
+	engine := gin.Default()
+	engine.SetTrustedProxies(nil)
+	engine.SetFuncMap(template.FuncMap{
 		"formatAsDate": formatAsDate,
 	})
-	router.LoadHTMLGlob(templatePath)
+	engine.LoadHTMLGlob(templatePath)
 
-	router.GET("/", index)
-	router.GET("/health", health)
-	router.GET("/todos/", GetTodos)
-	router.GET("/todos/:id", GetTodo)
+	engine.GET("/", index)
+	engine.GET("/health", health)
+	engine.GET("/todos/", GetTodos)
+	engine.GET("/todos/:id", GetTodo)
 
-	return router
+	return engine
 }
 
 func formatAsDate(t time.Time) string {
